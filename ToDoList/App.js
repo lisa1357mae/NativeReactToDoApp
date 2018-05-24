@@ -25,7 +25,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          My ToDo app!
         </Text>
         <Text style={styles.instructions}>
           To get started, edit App.js
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#235063',
   },
   welcome: {
     fontSize: 20,

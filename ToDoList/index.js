@@ -1,3 +1,9 @@
+
+
+import App from './App';
+AppRegistry.registerComponent('ToDoList', () => App);
+
+
 import React, { Component } from "react";
 import {
   AppRegistry,
@@ -58,12 +64,12 @@ export default class TodoList extends Component {
   componentDidMount() {
     Keyboard.addListener(
       isAndroid ? "keyboardDidShow" : "keyboardWillShow",
-      e => this.setState({ viewMargin: e.endCoordinates.height + viewPadding })
+      e => this.setState({ viewPadding: e.endCoordinates.height + viewPadding })
     );
 
     Keyboard.addListener(
       isAndroid ? "keyboardDidHide" : "keyboardWillHide",
-      () => this.setState({ viewMargin: viewPadding })
+      () => this.setState({ viewPadding: viewPadding })
     );
 
     Tasks.all(tasks => this.setState({ tasks: tasks || [] }));
@@ -72,7 +78,7 @@ export default class TodoList extends Component {
   render() {
     return (
       <View
-        style={[styles.container, { paddingBottom: this.state.viewMargin }]}
+        style={[styles.container, { paddingBottom: this.state.viewPadding }]}
       >
         <FlatList
           style={styles.list}
@@ -156,3 +162,5 @@ const styles = StyleSheet.create({
     width: "100%"
   }
 });
+
+AppRegistry.registerComponent("TodoList", () => TodoList);
